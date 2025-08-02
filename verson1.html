@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookstore</title>
+    <!-- Use the Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .bg-white {
+            background-color: #ffffff;
+        }
+        .text-gray-800 {
+            color: #1f2937;
+        }
+        .text-gray-600 {
+            color: #4b5563;
+        }
+        .text-blue-600 {
+            color: #2563eb;
+        }
+        .text-gray-500 {
+            color: #6b7280;
+        }
+        .hover\:shadow-2xl:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .transition-shadow {
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .transition-transform {
+            transition: transform 0.3s ease-in-out;
+        }
+        .group:hover .group-hover\:scale-105 {
+            transform: scale(1.05);
+        }
+        .group:hover .group-hover\:scale-105 img {
+            transform: scale(1.05);
+        }
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+        .rounded-t-xl {
+            border-top-left-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-gray-800 tracking-tight leading-tight mb-4">My Online Bookstore</h1>
+            <p class="text-lg text-gray-600">Click on a book you like to buy it via Messenger!</p>
+        </header>
+
+        <!-- Book Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+            <!-- Example Book Card 1 -->
+            <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
+                <!-- IMPORTANT: Replace 'YOUR_FACEBOOK_PAGE_ID' with your actual Messenger link. -->
+                <a href="haha.html" target="_blank" class="block group">
+                    <!-- Book Image -->
+                    <img
+                        src="IMG_0686.JPG"
+                        alt="Book Cover 1"
+                        class="w-full h-auto object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/400x550/4B5563/ffffff?text=Image+Not+Found'"
+                    />
+                </a>
+                <!-- Book Details -->
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">idk</h3>
+                    <p class="text-gray-500 text-sm italic mb-3">by ahnaf</p>
+                    <p class="text-2xl font-bold text-blue-600">100</p>
+                </div>
+            </div>
+
+            <!-- Example Book Card 2 -->
+            <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
+                <!-- IMPORTANT: Replace 'YOUR_FACEBOOK_PAGE_ID' with your actual Messenger link. -->
+                <a href="https://m.me/61578899435177" target="_blank" class="block group">
+                    <!-- Book Image -->
+                    <img
+                        src=""
+                        alt="Book Cover 2"
+                        class="w-full h-auto object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/400x550/4B5563/ffffff?text=Image+Not+Found'"
+                    />
+                </a>
+                <!-- Book Details -->
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">idk</h3>
+                    <p class="text-gray-500 text-sm italic mb-3">ahnaf</p>
+                    <p class="text-2xl font-bold text-blue-600">110</p>
+                </div>
+            </div>
+
+            <!-- Example Book Card 3 -->
+            <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
+                <!-- IMPORTANT: Replace 'YOUR_FACEBOOK_PAGE_ID' with your actual Messenger link. -->
+                <a href="https://m.me/61578899435177" target="_blank" class="block group">
+                    <!-- Book Image -->
+                    <img
+                        src=""
+                        alt="Book Cover 3"
+                        class="w-full h-auto object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/400x550/4B5563/ffffff?text=Image+Not+Found'"
+                    />
+                </a>
+                <!-- Book Details -->
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">idk</h3>
+                    <p class="text-gray-500 text-sm italic mb-3">by ahnaf</p>
+                    <p class="text-2xl font-bold text-blue-600">100</p>
+                </div>
+            </div>
+
+            <!-- Example Book Card 4 -->
+            <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
+                <!-- IMPORTANT: Replace 'YOUR_FACEBOOK_PAGE_ID' with your actual Messenger link. -->
+                <a href="https://m.me/61578899435177" target="_blank" class="block group">
+                    <!-- Book Image -->
+                    <img
+                        src=""
+                        alt="Book Cover 4"
+                        class="w-full h-auto object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/400x550/4B5563/ffffff?text=Image+Not+Found'"
+                    />
+                </a>
+                <!-- Book Details -->
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">idk</h3>
+                    <p class="text-gray-500 text-sm italic mb-3">by ahnaf</p>
+                    <p class="text-2xl font-bold text-blue-600">110</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

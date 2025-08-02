@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Card</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply the Inter font and a subtle gradient background */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: linear-gradient(to right top, #d1d5db, #d8d8dc, #e1dbe2, #e8ddeb, #eeddf5);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6">
+
+    <!-- Main Container for the card -->
+    <div class="max-w-sm w-full">
+        <!-- Book Card -->
+        <div class="bg-white rounded-3xl shadow-2xl transition-shadow duration-300 overflow-hidden group">
+
+            <!-- Link for the book image -->
+            <!-- IMPORTANT: Replace the href with your actual Messenger link. -->
+            <a href="https://m.me/61578899435177" target="_blank" class="block">
+                <!-- Book Image -->
+                <!-- A placeholder image is used here. Replace '4B5563' with your preferred background color and 'ffffff' with the text color. -->
+                <img
+                    src="IMG_0686.JPG"
+                    alt="Book Cover"
+                    class="w-full h-80 sm:h-96 object-cover rounded-t-3xl transition-transform duration-300 group-hover:scale-105"
+                    onerror="this.src='https://placehold.co/400x550/4B5563/ffffff?text=Image+Not+Found'"
+                />
+            </a>
+
+            <!-- Book Details -->
+            <div class="p-6 text-center">
+                <!-- Book Title -->
+                <h3 id="bookTitle" class="text-2xl font-bold text-gray-800 mb-1">idk</h3>
+                <!-- Book Author -->
+                <p id="bookAuthor" class="text-gray-500 text-sm italic mb-3">by ahnaf</p>
+                <!-- Book Link -->
+                <p id="bookLink" class="text-gray-600 mb-4">not given yet</p>
+                <p class="text-3xl font-extrabold text-blue-600">100</p>
+                
+                <!-- Buttons are now integrated inside the card -->
+                <div class="mt-6 flex flex-col items-center gap-3">
+                    <button id="copyButton" class="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-200 ease-in-out transform hover:scale-105 active:scale-95">
+                        Copy Details
+                    </button>
+
+                    <!-- "Buy Now" button is now inside the card and styled -->
+                    <!-- IMPORTANT: Replace the href with your actual Messenger link. -->
+                    <a href="https://m.me/61578899435177" target="_blank" class="block w-full">
+                         <button class="w-full px-6 py-3 border border-blue-600 text-blue-600 font-semibold rounded-full shadow-md hover:bg-blue-100 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-200 ease-in-out transform hover:scale-105 active:scale-95">
+                            Buy Now on Messenger
+                         </button>
+                    </a>
+
+                    <!-- A message to show the user that the text was copied -->
+                    <div id="copyMessage" class="mt-2 text-green-600 font-medium opacity-0 transition-opacity duration-300">
+                        Details copied!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get references to the elements from the DOM
+        const copyButton = document.getElementById('copyButton');
+        const copyMessage = document.getElementById('copyMessage');
+        const bookTitleEl = document.getElementById('bookTitle');
+        const bookAuthorEl = document.getElementById('bookAuthor');
+        const bookLinkEl = document.getElementById('bookLink');
+
+        // Add a click event listener to the button
+        copyButton.addEventListener('click', () => {
+            // Dynamically get the book title, author, and link
+            const title = bookTitleEl.textContent;
+            const author = bookAuthorEl.textContent;
+            const link = bookLinkEl.textContent;
+            
+            // Construct the text to be copied
+            const textToCopy = `Title: ${title}\nAuthor: ${author}\nLink: ${link}`;
+
+            // Use the fallback method for copying text as the modern API may not work in all environments.
+            // This is a more reliable way to copy content in the context of an iframe.
+            if (document.execCommand) {
+                // Create a temporary textarea element
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = textToCopy;
+                document.body.appendChild(tempTextArea);
+                
+                // Select and copy the text
+                tempTextArea.select();
+                document.execCommand('copy');
+                
+                // Remove the temporary element
+                document.body.removeChild(tempTextArea);
+
+                // On success, show the confirmation message
+                copyMessage.textContent = 'Details copied!';
+                copyMessage.classList.remove('opacity-0', 'text-red-600');
+                copyMessage.classList.add('opacity-100', 'text-green-600');
+            } else {
+                // If execCommand is not supported, show a failure message
+                console.error('Copy command is not supported.');
+                copyMessage.textContent = 'Failed to copy!';
+                copyMessage.classList.remove('opacity-0', 'text-green-600');
+                copyMessage.classList.add('opacity-100', 'text-red-600');
+            }
+            
+            // Hide the message after a delay of 2 seconds
+            setTimeout(() => {
+                copyMessage.classList.remove('opacity-100');
+                copyMessage.classList.add('opacity-0');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
